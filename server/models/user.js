@@ -4,13 +4,15 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
+console.log();
+
 const userSchema = mongoose.Schema({
   email: {
     type: String,
     required: true,
     unique: true,
     trim: true,
-    validator(value) {
+    validate(value) {
       if (!validator.isEmail(value)) {
         throw new Error('Invalid email');
       }
@@ -75,6 +77,13 @@ userSchema.methods.generateAuthToken = function () {
 userSchema.statics.emailTaken = async function (email) {
   const user = await this.findOne({ email });
   return !!user;
+};
+
+userSchema.methods.comparePassword = async function (candidatePassword) {
+  // candidate password = unhashed password
+  const user = this;
+  const match = await bcrypt.compare(candidatePassword, user.password);
+  return match;
 };
 
 const User = mongoose.model('User', userSchema);
