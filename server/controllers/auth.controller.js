@@ -33,14 +33,16 @@ const authController = {
         token,
       });
 
-      res.send({ user });
+      // res.send({ user });
     } catch (error) {
       next(error);
     }
   },
   async isauth(req, res, next) {
-    try {
-    } catch (error) {}
+    res.json(req.user);
+  },
+  async dog(req, res, next) {
+    res.json({ ok: 'yes' });
   },
 };
 
