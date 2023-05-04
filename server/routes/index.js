@@ -1,5 +1,6 @@
 const express = require('express');
 const authRoute = require('./auth.route');
+const userRoute = require('./users.route');
 const router = express.Router();
 
 // localhost: 3001/api/auth
@@ -9,6 +10,10 @@ const routesIndex = [
   {
     path: '/auth',
     route: authRoute,
+  },
+  {
+    path: '/users',
+    route: userRoute,
   },
 ];
 
