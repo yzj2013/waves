@@ -32,7 +32,7 @@ const Carrousel = ({ items }) => {
                 <div>
                   <WavesButton
                     type='default'
-                    title={item.lineTitle}
+                    title={item.linkTitle}
                     link={item.linkTo}
                     style={{
                       margin: '10px 0 0 0',
