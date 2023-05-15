@@ -28,6 +28,7 @@ export const productsBySort = ({ limit, sortBy, order, where }) => {
       // console.log(products);
     } catch (error) {
       console.log(error);
+      dispatch(actions.errorGlobal(error.response.data.message));
     }
   };
 };

@@ -11,7 +11,15 @@
 //   };
 // };
 
-import { GET_PROD_SOLD, GET_PROD_DATE } from 'store/types';
+import {
+  GET_PROD_SOLD,
+  GET_PROD_DATE,
+  ERROR_GLOBAL,
+  SUCCESS_GLOBAL,
+  CLEAR_NOTIFICATION,
+} from 'store/types';
+
+///// PRODUCTS
 
 export const productsBySold = (data) => ({
   type: GET_PROD_SOLD,
@@ -22,3 +30,23 @@ export const productsByDate = (data) => ({
   type: GET_PROD_DATE,
   payload: data,
 });
+
+////// NOTIFICATIONS
+
+export const errorGlobal = (msg) => ({
+  type: ERROR_GLOBAL,
+  payload: msg,
+});
+
+export const successGlobal = (msg) => ({
+  type: SUCCESS_GLOBAL,
+  payload: msg,
+});
+
+export const clearNotification = () => {
+  return (dispatch) => {
+    dispatch({
+      type: CLEAR_NOTIFICATION,
+    });
+  };
+};
