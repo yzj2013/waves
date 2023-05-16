@@ -17,7 +17,14 @@ import {
   ERROR_GLOBAL,
   SUCCESS_GLOBAL,
   CLEAR_NOTIFICATION,
+  AUTH_USER,
 } from 'store/types';
+
+///// USER
+export const userAuthenticate = (user) => ({
+  type: AUTH_USER,
+  payload: user,
+});
 
 ///// PRODUCTS
 

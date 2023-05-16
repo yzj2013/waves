@@ -1,5 +1,7 @@
 // import { MY_DOG } from '../types';
 
+import { AUTH_USER } from '../types';
+
 let DEFAULT_USER_STATE = {
   data: {
     _id: null,
@@ -20,6 +22,14 @@ export default function usersReducer(state = DEFAULT_USER_STATE, action) {
     //     ...state,
     //     dog: action.payload,
     //   };
+
+    case AUTH_USER:
+      return {
+        ...state,
+        data: { ...state.data, ...action.payload.data },
+        auth: action.payload.auth,
+      };
+
     default:
       return state;
   }
