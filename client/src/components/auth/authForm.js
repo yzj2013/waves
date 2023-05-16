@@ -6,7 +6,7 @@ import { errorHelper } from 'utils/tool';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { TextField, Button } from '@material-ui/core';
-import { usersRegister } from 'store/actions/user.actions';
+import { userRegister, userSignin } from 'store/actions/user.actions';
 
 const AuthForm = (props) => {
   const notifications = useSelector((state) => state.notifications);
@@ -30,10 +30,11 @@ const AuthForm = (props) => {
   const handleSubmit = (values) => {
     if (props.formType) {
       ////// register
-      dispatch(usersRegister(values));
-      console.log(values);
+      dispatch(userRegister(values));
+      // console.log(values);
     } else {
       ////// sign in
+      dispatch(userSignin(values));
     }
   };
 
