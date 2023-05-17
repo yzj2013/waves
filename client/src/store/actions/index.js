@@ -18,12 +18,17 @@ import {
   SUCCESS_GLOBAL,
   CLEAR_NOTIFICATION,
   AUTH_USER,
+  SIGN_OUT,
 } from 'store/types';
 
 ///// USER
 export const userAuthenticate = (user) => ({
   type: AUTH_USER,
   payload: user,
+});
+
+export const userSignOut = () => ({
+  type: SIGN_OUT,
 });
 
 ///// PRODUCTS
