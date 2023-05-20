@@ -1,6 +1,11 @@
 // import { MY_DOG } from '../types';
 
-import { AUTH_USER, SIGN_OUT, UPDATE_USER_PROFILE } from '../types';
+import {
+  AUTH_USER,
+  SIGN_OUT,
+  UPDATE_USER_PROFILE,
+  USER_CHANGE_EMAIL,
+} from '../types';
 
 let DEFAULT_USER_STATE = {
   data: {
@@ -45,6 +50,12 @@ export default function usersReducer(state = DEFAULT_USER_STATE, action) {
         //   firstname: action.payload.data.firstname,
         //   lastname: action.payload.data.lastname,
         // },
+      };
+
+    case USER_CHANGE_EMAIL:
+      return {
+        ...state,
+        data: { ...state.data, email: action.payload },
       };
 
     default:

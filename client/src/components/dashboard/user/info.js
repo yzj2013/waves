@@ -3,6 +3,7 @@ import DashboardLayout from 'hoc/dashboardLayout';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { errorHelper } from 'utils/tool';
+import EmailStepper from './stepper';
 
 import { useDispatch } from 'react-redux';
 import { TextField, Button } from '@material-ui/core';
@@ -72,6 +73,10 @@ const UserInfo = ({ users }) => {
           Edit profile
         </Button>
       </form>
+      <hr />
+      <div>
+        <EmailStepper users={users} />
+      </div>
     </DashboardLayout>
   );
 };

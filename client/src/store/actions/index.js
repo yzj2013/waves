@@ -20,6 +20,7 @@ import {
   AUTH_USER,
   SIGN_OUT,
   UPDATE_USER_PROFILE,
+  USER_CHANGE_EMAIL,
 } from 'store/types';
 
 ///// USER
@@ -35,6 +36,11 @@ export const userSignOut = () => ({
 export const userUpdateProfile = (userdata) => ({
   type: UPDATE_USER_PROFILE,
   payload: userdata,
+});
+
+export const userChangeEmail = (data) => ({
+  type: USER_CHANGE_EMAIL,
+  payload: data,
 });
 
 ///// PRODUCTS
