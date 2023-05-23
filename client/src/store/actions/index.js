@@ -21,6 +21,8 @@ import {
   SIGN_OUT,
   UPDATE_USER_PROFILE,
   USER_CHANGE_EMAIL,
+  GET_PROD_PAGINATE,
+  REMOVE_PRODUCT,
 } from 'store/types';
 
 ///// USER
@@ -53,6 +55,15 @@ export const productsBySold = (data) => ({
 export const productsByDate = (data) => ({
   type: GET_PROD_DATE,
   payload: data,
+});
+
+export const productsByPaginate = (products) => ({
+  type: GET_PROD_PAGINATE,
+  payload: products,
+});
+
+export const productRemove = () => ({
+  type: REMOVE_PRODUCT,
 });
 
 ////// NOTIFICATIONS

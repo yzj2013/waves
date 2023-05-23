@@ -3,6 +3,8 @@
 //// products
 export const GET_PROD_SOLD = 'get_prod_by_sold';
 export const GET_PROD_DATE = 'get_prod_by_date';
+export const GET_PROD_PAGINATE = 'get_prod_paginate';
+export const REMOVE_PRODUCT = 'remove_product';
 
 //// notifications
 export const ERROR_GLOBAL = 'error_global';

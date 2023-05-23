@@ -67,8 +67,8 @@ const paginateProducts = async (req) => {
     // const example = {
     //   'keywords': 'elite',
     //   'brand':['6459ce78f4c8103a84ff62e7','6459ce78f4c8103a84ff62e7'],
-    //   'lt': 200,
-    //   'gt': 500,
+    //   'min': 200,
+    //   'max': 500,
     //   'frets': 24,
     // }
 
@@ -125,6 +125,8 @@ const paginateProducts = async (req) => {
     );
 
     //////////
+
+    console.log(aggQueryArray);
 
     let aggQuery = Product.aggregate(aggQueryArray);
     const options = {
