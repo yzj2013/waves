@@ -110,7 +110,7 @@ const AddProduct = (props) => {
                 </Select>
                 {formik.errors.brand && formik.touched.brand ? (
                   <FormHelperText error={true}>
-                    {formik.error.brand}
+                    {formik.errors.brand}
                   </FormHelperText>
                 ) : null}
               </FormControl>
