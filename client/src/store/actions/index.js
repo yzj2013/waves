@@ -23,6 +23,7 @@ import {
   USER_CHANGE_EMAIL,
   GET_PROD_PAGINATE,
   REMOVE_PRODUCT,
+  GET_ALL_BRANDS,
 } from 'store/types';
 
 ///// USER
@@ -64,6 +65,12 @@ export const productsByPaginate = (products) => ({
 
 export const productRemove = () => ({
   type: REMOVE_PRODUCT,
+});
+
+//// BRANDS
+export const getAllBrands = (brands) => ({
+  type: GET_ALL_BRANDS,
+  payload: brands,
 });
 
 ////// NOTIFICATIONS
