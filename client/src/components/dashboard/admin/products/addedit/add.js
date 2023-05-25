@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import PicUpload from './upload';
+import PicViewer from './picViewer';
 import DashboardLayout from 'hoc/dashboardLayout';
 
 import { useFormik } from 'formik';
@@ -9,7 +11,7 @@ import { validation } from './formValues';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllBrands } from 'store/actions/brands.actions';
 import { productAdd } from 'store/actions/product.actions';
-import { clearProductAdd } from 'store/actions/index';
+// import { clearProductAdd } from 'store/actions/index';
 
 import {
   TextField,
@@ -37,6 +39,7 @@ const AddProduct = (props) => {
       price: '',
       available: '',
       shipping: false,
+      images: [],
     },
     validationSchema: validation,
     onSubmit: (values) => {
@@ -46,7 +49,20 @@ const AddProduct = (props) => {
 
   const handleSubmit = (values) => {
     setLoading(true);
+    console.log(values);
     dispatch(productAdd(values));
+  };
+
+  const handlePicValue = (pic) => {
+    const picArray = formik.values.images;
+    picArray.push(pic.url);
+    formik.setFieldValue('images', picArray);
+  };
+
+  const deletePic = (index) => {
+    const picArray = formik.values.images;
+    picArray.splice(index, 1);
+    formik.setFieldValue('images', picArray);
   };
 
   useEffect(() => {
@@ -68,12 +84,19 @@ const AddProduct = (props) => {
   //   };
   // }, [dispatch]);
 
+  // console.log(formik.values);
+
   return (
     <DashboardLayout title='Add product'>
       {loading ? (
         <Loader />
       ) : (
         <>
+          <PicViewer formik={formik} deletePic={(index) => deletePic(index)} />
+          <PicUpload picValue={(pic) => handlePicValue(pic)} />
+
+          <Divider className='mt-3 mb-3' />
+
           <form className='mt-3 article_form' onSubmit={formik.handleSubmit}>
             <div className='form-group'>
               <TextField

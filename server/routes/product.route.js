@@ -2,7 +2,11 @@ const express = require('express');
 const router = express.Router();
 const productsController = require('../controllers/products.controller');
 const auth = require('../middleware/auth');
+// const { addProductValidator } = require('../middleware/validations');
+// const formidableMiddleware = require('express-formidable');
+
 const { addProductValidator } = require('../middleware/validations');
+const formidableMiddleware = require('express-formidable');
 
 router.post(
   '/',
@@ -21,5 +25,11 @@ router.get('/all', productsController.allProducts);
 router.post('/paginate/all', productsController.paginateProducts);
 
 /// UPLOADING IMAGINES
+router.post(
+  '/upload',
+  auth('createAny', 'product'),
+  formidableMiddleware(),
+  productsController.picUpload
+);
 
 module.exports = router;

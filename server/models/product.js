@@ -48,7 +48,7 @@ const productSchema = mongoose.Schema({
     required: [true, 'Specify if this product has free shipping'],
     default: false,
   },
-  image: {
+  images: {
     type: Array,
     default: [],
   },
