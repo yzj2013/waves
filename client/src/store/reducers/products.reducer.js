@@ -4,6 +4,8 @@ import {
   GET_PROD_PAGINATE,
   PRODUCT_ADD,
   CLEAR_PRODUCT_ADD,
+  GET_PROD_BY_ID,
+  CLEAR_CURRENT_PRODUCT,
 } from 'store/types';
 
 export default function productsReducer(state = {}, action) {
@@ -21,6 +23,10 @@ export default function productsReducer(state = {}, action) {
       return { ...state, lastAdded: action.payload };
     case CLEAR_PRODUCT_ADD:
       return { ...state, lastAdded: null };
+    case GET_PROD_BY_ID:
+      return { ...state, byId: action.payload };
+    case CLEAR_CURRENT_PRODUCT:
+      return { ...state, byId: '' };
     default:
       return state;
   }

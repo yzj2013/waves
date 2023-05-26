@@ -26,7 +26,9 @@ import {
   GET_ALL_BRANDS,
   PRODUCT_ADD,
   CLEAR_PRODUCT_ADD,
-} from 'store/types';
+  GET_PROD_BY_ID,
+  CLEAR_CURRENT_PRODUCT,
+} from '../types';
 
 ///// USER
 export const userAuthenticate = (user) => ({
@@ -79,6 +81,15 @@ export const clearProductAdd = () => {
     type: CLEAR_PRODUCT_ADD,
   };
 };
+
+export const productsById = (product) => ({
+  type: GET_PROD_BY_ID,
+  payload: product,
+});
+
+export const clearCurrentProduct = () => ({
+  type: CLEAR_CURRENT_PRODUCT,
+});
 
 //// BRANDS
 export const getAllBrands = (brands) => ({
