@@ -44,7 +44,6 @@ export const WavesButton = (props) => {
 };
 
 export const renderCardImage = (image) => {
-  console.log(image);
   if (image.length > 0) {
     return image[0];
   } else {
