@@ -3,6 +3,7 @@ import CardBlock from 'utils/products/card.blocks';
 import PaginateNav from 'utils/paginateNav';
 import SearchBar from './searchBar';
 import CollapseCheckbox from './collapseCheckbox';
+import RangeSelect from './rangeSelect';
 
 import { Button } from 'react-bootstrap';
 
@@ -12,7 +13,6 @@ import { getAllBrands } from 'store/actions/brands.actions';
 
 import GridOffIcon from '@material-ui/icons/GridOff';
 import GridOnIcon from '@material-ui/icons/GridOn';
-import { Category } from '@material-ui/icons';
 
 const defaultValues = {
   keywords: '',
@@ -65,6 +65,10 @@ const Shop = () => {
     }
   };
 
+  const handleRange = (values) => {
+    setSearchValues({ min: values[0], max: values[1], page: 1 });
+  };
+
   useEffect(() => {
     dispatch(getAllBrands());
   }, [dispatch]);
@@ -101,7 +105,10 @@ const Shop = () => {
               ]}
               handleFilters={(filters) => handleFilters(filters, 'frets')}
             />
-            collapse frets fange select
+            <RangeSelect
+              title='Price range'
+              handleRange={(values) => handleRange(values)}
+            />
           </div>
           <div className='right'>
             <div className='shop_options'>
