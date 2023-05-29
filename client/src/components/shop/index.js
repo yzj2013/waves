@@ -2,6 +2,7 @@ import React, { useEffect, useReducer, useState } from 'react';
 import CardBlock from 'utils/products/card.blocks';
 import PaginateNav from 'utils/paginateNav';
 import SearchBar from './searchBar';
+import CollapseCheckbox from './collapseCheckbox';
 
 import { Button } from 'react-bootstrap';
 
@@ -11,6 +12,7 @@ import { getAllBrands } from 'store/actions/brands.actions';
 
 import GridOffIcon from '@material-ui/icons/GridOff';
 import GridOnIcon from '@material-ui/icons/GridOn';
+import { Category } from '@material-ui/icons';
 
 const defaultValues = {
   keywords: '',
@@ -53,6 +55,16 @@ const Shop = () => {
     setSearchValues(defaultValues);
   };
 
+  const handleFilters = (filters, category) => {
+    if (category === 'brands') {
+      setSearchValues({ brand: filters, page: 1 });
+    }
+
+    if (category === 'frets') {
+      setSearchValues({ frets: filters, page: 1 });
+    }
+  };
+
   useEffect(() => {
     dispatch(getAllBrands());
   }, [dispatch]);
@@ -71,7 +83,26 @@ const Shop = () => {
       </div>
       <div className='container'>
         <div className='shop_wrapper'>
-          <div className='left'>collapse brand collapse frets fange select</div>
+          <div className='left'>
+            <CollapseCheckbox
+              initState={true}
+              title='Brands'
+              list={brands.all}
+              handleFilters={(filters) => handleFilters(filters, 'brands')}
+            />
+            <CollapseCheckbox
+              initState={false}
+              title='Frets'
+              list={[
+                { _id: 20, name: 20 },
+                { _id: 21, name: 21 },
+                { _id: 22, name: 22 },
+                { _id: 24, name: 24 },
+              ]}
+              handleFilters={(filters) => handleFilters(filters, 'frets')}
+            />
+            collapse frets fange select
+          </div>
           <div className='right'>
             <div className='shop_options'>
               <div className='shop_grids clear'>
