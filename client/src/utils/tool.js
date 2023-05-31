@@ -36,6 +36,21 @@ export const WavesButton = (props) => {
         </div>
       );
       break;
+
+    case 'add_to_cart_link':
+      template = (
+        <div
+          className='add_to_cart_link'
+          onClick={() => {
+            props.runAction();
+          }}
+        >
+          <AddShoppingCartIcon />
+          Add to cart
+        </div>
+      );
+      break;
+
     default:
       template = '';
   }

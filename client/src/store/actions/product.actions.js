@@ -1,11 +1,7 @@
 import * as actions from './index';
 import axios from 'axios';
 
-import {
-  getAuthHeader,
-  removeTokenCookie,
-  getTokenCookie,
-} from '../../utils/tool';
+import { getAuthHeader } from '../../utils/tool';
 
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
