@@ -13,7 +13,7 @@ export const links = [
   },
   {
     name: 'My cart',
-    linkTo: '/dashboard/user/',
+    linkTo: '/dashboard/user/user_cart',
   },
 ];
 
