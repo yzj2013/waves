@@ -30,6 +30,7 @@ import {
   CLEAR_CURRENT_PRODUCT,
   USER_ADD_TO_CART,
   PURCHASE_SUCCESS,
+  GET_SITE_VARS,
 } from '../types';
 
 ///// USER
@@ -128,3 +129,10 @@ export const clearNotification = () => {
     });
   };
 };
+
+//// SITE
+
+export const siteGetVars = (vars) => ({
+  type: GET_SITE_VARS,
+  payload: vars,
+});

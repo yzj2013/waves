@@ -59,6 +59,16 @@ const UserCart = (props) => {
     return items;
   };
 
+  useEffect(() => {
+    if (notifications && notifications.success) {
+      props.history.push('/dashboard');
+    }
+
+    if (notifications && notifications.error) {
+      setLoading(false);
+    }
+  }, [notifications, props.history]);
+
   return (
     <DashboardLayout title='Your Cart'>
       {props.users.cart && props.users.cart.length > 0 ? (
